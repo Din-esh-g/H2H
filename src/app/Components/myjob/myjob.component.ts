@@ -8,21 +8,31 @@ import { error } from 'util';
   styleUrls: ['./myjob.component.scss']
 })
 export class MyjobComponent implements OnInit {
-  jobs: any;
-
+  values: any;
+  model: any = {};
   constructor(private myjobservice: MyjobsService) { }
-
+  //constructor(private http: HttpClient) { }
   ngOnInit() {
     this.getmyjob();
   }
 
-getmyjob(){
-  return this.myjobservice.getmyjob().subscribe( response => {
-  this.jobs = response},
-  error=>{
-    console.log(error);
-  });
-}
+  postmyjob() {
+    this.myjobservice.postmyjob(this.model).subscribe(() => {
+      console.log('Job Post Sucessfully');
+    }, error => {
+      console.log(error);
+
+    });
+
+  }
+  getmyjob() {
+    this.myjobservice.getMyjob().subscribe(response => {
+      this.values = response
+    },
+      error => {
+        console.log(error)
+      });
+  }
 
 
 }

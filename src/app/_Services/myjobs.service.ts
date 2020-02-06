@@ -5,20 +5,22 @@ import  {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MyjobsService {
-baseurl : 'http://localhost:44346/api/myjobs/';
+  baseUrl = 'https://localhost:44346/api/myjobs/';
+
+  //myjobs:any;
+  // httpCleint: any;
   constructor(private http: HttpClient) { }
 
-postjob(jobs:any){
-  return this.http.post(this.baseurl+'postmyjob',jobs);
-}
+  postmyjob(model: any) {
+    return this.http.post(this.baseUrl + 'postmyjob', model);
 
-getmyjob(){
-  return this.http.get(this.baseurl);
-}
-
-getmyjobbyid(id){
-  return this.http.get(this.baseurl +id);
-}
+  }
+  getMyjob() {
+    return this.http.get(this.baseUrl);
+  }
+  getmyjobbyid(id: number) {
+    return this.http.get(this.baseUrl + id);
+  }
 
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -11,7 +11,10 @@ import { MycommunityComponent } from './Components/mycommunity/mycommunity.compo
 import { PropertiesComponent } from './Components/properties/properties.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MakeafriendComponent } from './Components/makeafriend/makeafriend.component';
-
+import { FormsModule } from '@angular/forms';
+import { MyjobsService } from './_Services/myjobs.service';
+import { AuthenticationService } from './_Services/authentication.service';
+import { DropdownModule } from "ngx-dropdown";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,15 @@ import { MakeafriendComponent } from './Components/makeafriend/makeafriend.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    //BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    MyjobsService,
+    AuthenticationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

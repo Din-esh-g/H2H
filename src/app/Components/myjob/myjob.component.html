@@ -1,3 +1,22 @@
+<br><br><br>
+<form #postmyjobForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="postmyjob()">
+    <input class="form-control mr-sm-2" name="jobtitle" required type="text" [(ngModel)]="model.jobtitle"
+        placeholder="@jobTitle" aria-label="Job Title ">
+    <input class="form-control mr-sm-2" name="typeofjob" required type="text" [(ngModel)]="model.typeofjob"
+        placeholder="@Type of Job" aria-label="Type of Job ">
+    <input class="form-control mr-sm-2" name="jobdescription" required type="text" [(ngModel)]="model.jobdescription"
+        placeholder="@Job Description" aria-label="Job Description ">
+    <input class="form-control mr-sm-2" name="contactdetail" required type="text" [(ngModel)]="model.contactdetail"
+        placeholder="@Contact Details" aria-label="Contact Details">
+    <button [disabled]="!postmyjobForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Post
+        Job</button>
+</form>
+<h3> Here is my job posted</h3>
 
-
-<h1> Here we work</h1>
+<p *ngFor="let value of values">
+    {{value.id}},
+    {{value.jobTitle}},
+    {{value.jobDescription}},
+    {{value.typeOfJob}},
+    {{value.contacDetails}}
+</p>
