@@ -1,0 +1,91 @@
+.nav{
+    background-color: #3b3e47;
+}
+
+.bg-light {
+   
+    height: 70px;
+    background-color: #ffffff;
+    top: 0;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    padding: 0 15px 0 30px;
+    border-bottom: 1px solid rgba(10, 10, 100, 0.125);
+    box-shadow: 0 0 22px 0 rgba(36, 102, 253, 0.125);
+   
+}
+
+
+.p0{
+    padding: 0 !important;
+}
+ul, ol, li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a, a:hover,a:focus{
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+}
+.rotate-bar {
+    background: #404041;
+    height: 30px;
+    overflow-x: hidden;
+}
+.title {
+    background: #e51937 none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 30px;
+    padding-right: 35px;
+    position: relative;
+    text-align: right;
+    text-transform: uppercase;
+}
+.title::after {
+    background: #e51937;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: -29px;
+    top: 0;
+    width: 50px;
+    transform: skew(-30deg);
+}
+.tab-menu{
+    position: relative;
+}
+.tab-menu ul li{
+    float: left;
+    border-right: 1px solid #e51937;
+    transform: skew(-30deg);
+}
+.tab-menu ul li a {
+    color: #ffffff;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 30px;
+    padding: 0 35px;
+    text-transform: uppercase;
+    -webkit-transition: all 700ms ease;
+    -moz-transition: all 700ms ease;
+    -ms-transition: all 700ms ease;
+    -o-transition: all 700ms ease;
+    transition: all 700ms ease;
+}
+.tab-menu ul li a:hover,
+.tab-menu ul li.active a{
+    background: #10144d; 
+}
+.tab-menu ul li a span{
+    transform: skew(30deg);
+    display: block;
+}
+
