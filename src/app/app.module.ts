@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { MyjobsService } from './_Services/myjobs.service';
 import { AuthenticationService } from './_Services/authentication.service';
 import { DropdownModule } from "ngx-dropdown";
+import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
+import { FriendsComponent } from './Components/friends/friends.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { DropdownModule } from "ngx-dropdown";
     MycommunityComponent,
     PropertiesComponent,
     NavbarComponent,
-    MakeafriendComponent
+    MakeafriendComponent,
+    BuyandsaleComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
