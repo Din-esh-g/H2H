@@ -8,6 +8,7 @@ import { MycommunityComponent } from './Components/mycommunity/mycommunity.compo
 import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
 import { MyeventsComponent } from './Components/myevents/myevents.component';
 import { AuthGuard } from './_guard/auth.guard';
+import { FriendsComponent } from './Components/friends/friends.component';
 
 
 
@@ -19,7 +20,7 @@ const routes: Routes = [
 {path:'mycommunity',component:MycommunityComponent},
 { path: 'buyandsale', component: BuyandsaleComponent, canActivate:[AuthGuard]},
 { path: 'myevents', component: MyeventsComponent },
-
+{ path: 'friends', component: FriendsComponent },
 {path:'**',redirectTo:'home',pathMatch:'full'},
 
 
