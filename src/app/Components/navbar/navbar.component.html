@@ -60,7 +60,9 @@
             </form>
             <div *ngIf="loggedIn()" class="dropdown">
                 <a class=dropdown-toggle text-light>
-                    Welcome user
+                    
+                    Welcome {{model.username}}
+                  
                 </a> 
                 <div class="dropdown-menu">
                     <a class="dropdwon-item" href="">Edit Profile</a>

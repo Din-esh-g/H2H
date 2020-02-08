@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { MyjobComponent } from './Components/myjob/myjob.component';
 import { MynewsComponent } from './Components/mynews/mynews.component';
-import { MakeafriendComponent } from './Components/makeafriend/makeafriend.component';
+import { MakeafriendComponent } from './Components/Memebers/makeafriend/makeafriend.component';
 import { MycommunityComponent } from './Components/mycommunity/mycommunity.component';
 import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
 import { MyeventsComponent } from './Components/myevents/myevents.component';
 import { AuthGuard } from './_guard/auth.guard';
-import { FriendsComponent } from './Components/friends/friends.component';
+import { FriendsComponent } from './Components/Memebers/friends/friends.component';
 
 
 

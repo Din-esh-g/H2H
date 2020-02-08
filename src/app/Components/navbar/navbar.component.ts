@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/_Services/authentication.service';
+import { UserService } from 'src/app/_Services/user.service';
+import { User } from 'src/app/_Models/user';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  users: User[];
   model: any = {};
-  constructor(private authnticationService: AuthenticationService) { }
+  constructor(private authnticationService: AuthenticationService, private userservice: UserService) { }
 
   ngOnInit() {
   }
