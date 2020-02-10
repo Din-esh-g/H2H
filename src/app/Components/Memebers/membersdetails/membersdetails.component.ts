@@ -3,6 +3,7 @@ import { UserService } from 'src/app/_Services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/_Models/user';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { AlertifyService } from 'src/app/_Services/alertify.service';
 @Component({
   selector: 'app-membersdetails',
   templateUrl: './membersdetails.component.html',
@@ -12,7 +13,7 @@ export class MembersdetailsComponent implements OnInit {
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  constructor(private userService:UserService, private route: ActivatedRoute) { }
+  constructor(private userService:UserService, private route: ActivatedRoute,private alertyfy:AlertifyService) { }
 
   ngOnInit() {
    //this.loadUser();

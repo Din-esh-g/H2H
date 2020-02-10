@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_Models/user';
 import { UserService } from 'src/app/_Services/user.service';
+import { AlertifyService } from 'src/app/_Services/alertify.service';
 
 @Component({
   selector: 'app-friends',
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/_Services/user.service';
 })
 export class FriendsComponent implements OnInit {
 users:User[];
-  constructor(private userservice: UserService ) { }
+  constructor(private userservice: UserService, private alertify:AlertifyService ) { }
 
   ngOnInit() {
   this.loaduser();
@@ -18,8 +19,8 @@ users:User[];
     this.userservice.getusers().subscribe((users:User[])=> {
       this.users=users;
     }, error => {
-      console.log(error);
-    
+      //console.log(error);
+    this.alertify.error(error);
     });
   }
 

@@ -28,8 +28,8 @@ export class AuthenticationService {
   }
   loggedIn() {
   const token = localStorage.getItem('token');
-   return true;
-    console.log()
+  return !!token;
+    
   }
 
   register(model: any) {

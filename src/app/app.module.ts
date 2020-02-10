@@ -29,6 +29,7 @@ import { UserService } from './_Services/user.service';
 import { MDetailResolver } from './_resolver/m-detail-resolver';
 //import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ErrorInterceptorService } from './_Services/error.interceptor.service';
 
 
 export function tokenGetter(){
@@ -84,6 +85,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     AuthenticationService,
     AuthGuard,
     UserService,
+    ErrorInterceptorService,
     MDetailResolver,
    // AlertifyService,
 {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
