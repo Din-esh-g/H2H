@@ -1,9 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JwtModule } from '@auth0/angular-jwt'
+
 import { HomeComponent } from './Components/home/home.component';
 import { MyjobComponent } from './Components/myjob/myjob.component';
 import { MyeventsComponent } from './Components/myevents/myevents.component';
@@ -15,11 +17,29 @@ import { MakeafriendComponent } from './Components/Memebers/makeafriend/makeafri
 import { FormsModule } from '@angular/forms';
 import { MyjobsService } from './_Services/myjobs.service';
 import { AuthenticationService } from './_Services/authentication.service';
-import { DropdownModule } from "ngx-dropdown";
+import { DropdownModule } from 'ngx-dropdown';
+import {BsDropdownModule,TabsModule} from 'ngx-bootstrap';
 import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
 import { FriendsComponent } from './Components/Memebers/friends/friends.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DispalycardComponent } from './Components/Memebers/dispalycard/dispalycard.component';
+import { MembersdetailsComponent } from './Components/Memebers/membersdetails/membersdetails.component';
+import { AuthGuard } from './_guard/auth.guard';
+import { UserService } from './_Services/user.service';
+import { MDetailResolver } from './_resolver/m-detail-resolver';
+//import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { NgxGalleryModule } from 'ngx-gallery';
+
+
+export function tokenGetter(){
+  return localStorage.getItem('token');
+}
+export class CustomHammerConfig extends HammerGestureConfig{
+  overrides={
+    pinch:{enable:false},
+    rotate:{enable:false}
+  };
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,21 +53,40 @@ import { DispalycardComponent } from './Components/Memebers/dispalycard/dispalyc
     MakeafriendComponent,
     BuyandsaleComponent,
     FriendsComponent,
-    DispalycardComponent
+    DispalycardComponent,
+    MembersdetailsComponent
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     AngularFontAwesomeModule,
     FontAwesomeModule,
+    NgxGalleryModule,
+    //BrowserAnimationsModule,
+   // NgxNavbarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:44346'],
+        blacklistedRoutes: ['localhost:44346/api/auth']
+      }
+    })
   
     //BsDropdownModule.forRoot()
   ],
   providers: [
     MyjobsService,
     AuthenticationService,
+    AuthGuard,
+    UserService,
+    MDetailResolver,
+   // AlertifyService,
+{provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
 })

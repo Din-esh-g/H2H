@@ -9,6 +9,8 @@ import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.componen
 import { MyeventsComponent } from './Components/myevents/myevents.component';
 import { AuthGuard } from './_guard/auth.guard';
 import { FriendsComponent } from './Components/Memebers/friends/friends.component';
+import { MembersdetailsComponent } from './Components/Memebers/membersdetails/membersdetails.component';
+import { MDetailResolver } from './_resolver/m-detail-resolver';
 
 
 
@@ -21,6 +23,7 @@ const routes: Routes = [
 { path: 'buyandsale', component: BuyandsaleComponent, canActivate:[AuthGuard]},
 { path: 'myevents', component: MyeventsComponent },
 { path: 'friends', component: FriendsComponent },
+  { path: 'friends/:id', component: MembersdetailsComponent,resolve:{user: MDetailResolver}},
 {path:'**',redirectTo:'home',pathMatch:'full'},
 
 
