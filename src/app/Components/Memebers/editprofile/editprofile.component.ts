@@ -54,4 +54,9 @@ error => {
 });
 
 }
+updateMainPhoto(photoUrl){
+  this.user.photoUrl =photoUrl;
+}
+
+
 }

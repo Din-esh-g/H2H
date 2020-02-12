@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoupladComponent } from './photouplad.component';
+import { PhotoeditorComponent } from './photoeditor.component';
 
-describe('PhotoupladComponent', () => {
-  let component: PhotoupladComponent;
-  let fixture: ComponentFixture<PhotoupladComponent>;
+describe('PhotoeditorComponent', () => {
+  let component: PhotoeditorComponent;
+  let fixture: ComponentFixture<PhotoeditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoupladComponent ]
+      declarations: [ PhotoeditorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PhotoupladComponent);
+    fixture = TestBed.createComponent(PhotoeditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

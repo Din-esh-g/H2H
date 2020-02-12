@@ -30,6 +30,7 @@
     "font-awesome": "^4.7.0",
     "font-awesome-icons": "^1.6.0",
     "jsonwebtoken": "^8.5.1",
+    "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^5.3.2",
     "ngx-bootstrap-navbar": "0.0.5",
     "ngx-dropdown": "0.0.22",

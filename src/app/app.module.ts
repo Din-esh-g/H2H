@@ -35,6 +35,8 @@ import { AlertifyService } from './_Services/alertify.service';
 import { MEditResolver } from './_resolver/m-edit-resolver';
 import { MListResolver } from './_resolver/m-list-resolver';
 import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
+import { PhotoeditorComponent } from './Components/Memebers/photoeditor/photoeditor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -63,6 +65,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     DispalycardComponent,
     MembersdetailsComponent,
     EditprofileComponent,
+    PhotoeditorComponent,
    
    
   ],
@@ -76,6 +79,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     AngularFontAwesomeModule,
     FontAwesomeModule,
     NgxGalleryModule,
+    FileUploadModule,
     //BrowserAnimationsModule,
    // NgxNavbarModule,
     JwtModule.forRoot({
