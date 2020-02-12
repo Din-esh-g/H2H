@@ -30,6 +30,12 @@ import { MDetailResolver } from './_resolver/m-detail-resolver';
 //import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { ErrorInterceptorService } from './_Services/error.interceptor.service';
+import { EditprofileComponent } from './Components/Memebers/editprofile/editprofile.component';
+import { AlertifyService } from './_Services/alertify.service';
+import { MEditResolver } from './_resolver/m-edit-resolver';
+import { MListResolver } from './_resolver/m-list-resolver';
+import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
+
 
 
 export function tokenGetter(){
@@ -55,7 +61,9 @@ export class CustomHammerConfig extends HammerGestureConfig{
     BuyandsaleComponent,
     FriendsComponent,
     DispalycardComponent,
-    MembersdetailsComponent
+    MembersdetailsComponent,
+    EditprofileComponent,
+   
    
   ],
   imports: [
@@ -87,7 +95,10 @@ export class CustomHammerConfig extends HammerGestureConfig{
     UserService,
     ErrorInterceptorService,
     MDetailResolver,
-   // AlertifyService,
+    AlertifyService,
+    MEditResolver,
+    MListResolver,
+    PreventUnSavedChanges,
 {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
   ],
   bootstrap: [AppComponent]

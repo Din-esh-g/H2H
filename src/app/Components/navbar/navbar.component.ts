@@ -11,14 +11,14 @@ import { AlertifyService } from 'src/app/_Services/alertify.service';
 export class NavbarComponent implements OnInit {
   users: User[];
   model: any = {};
-  constructor(private authnticationService: AuthenticationService, private userservice: UserService, private alertify:AlertifyService) { }
+  constructor(public authnticationService: AuthenticationService, private userservice: UserService, private alertify:AlertifyService) { }
 
   ngOnInit() {
   }
   login() {
     this.authnticationService.login(this.model).subscribe(next => {
-      console.log('Log in sucessful');
-      this.alertify.sucess('Log in sucessful');
+     // console.log('Log in sucessful');
+      this.alertify.message('Log in sucessful');
     }, error => {
       console.log('Login Failed.');
         this.alertify.error('Login Failed.');
@@ -26,12 +26,13 @@ export class NavbarComponent implements OnInit {
 
   }
   loggedIn() {
-    const token = localStorage.getItem('token');
+    //const token = localStorage.getItem('token');
     //return !!token;
+    return this.authnticationService.loggedIn();
   }
   logOut() {
     localStorage.removeItem('token');
-    console.log('logged out');
+    this.alertify.warning('logged out');
   }
 
 }

@@ -9,15 +9,15 @@ import { AlertifyService } from '../_Services/alertify.service';
 
 @Injectable()
 
-export class MDetailResolver  implements Resolve <User> {
+export class MListResolver  implements Resolve <User[]> {
   
     constructor(private userService:UserService, private router: Router, private alertyfy:AlertifyService){}
 
-    resolve(route:ActivatedRouteSnapshot):Observable<User>{
-        return this.userService.getuser(route.params['id']).pipe(
+    resolve(route:ActivatedRouteSnapshot):Observable<User[]>{
+        return this.userService.getusers().pipe(
             catchError(error => {
-                this.alertyfy.error('Problem to retriving data.');
-                this.router.navigate(['/friends']);
+                console.log('Problem to retriving data.9');
+                this.router.navigate(['/myjob']);
                 return of(null);
             })
         );
