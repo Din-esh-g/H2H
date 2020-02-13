@@ -30,4 +30,5 @@ export class AlertifyService {
   message(message: string) {
     alertyify.message(message);
   }
+
 }

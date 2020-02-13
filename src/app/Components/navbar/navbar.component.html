@@ -49,6 +49,10 @@
     </form>
     
     <li *ngIf="loggedIn()" class="nav-item dropdown">
+        <span class ="mr-sm-2">
+        <!-- <img src="{{authnticationService.currentUser.photoUrl}}" alt=""> -->
+        <img src="{{photoUrl}}" alt="">
+        </span>
         <a class="dropdown-toggle text-light" href="#" id="dropdown02" data-toggle="dropdown"
             aria-expanded="false" text-light> <i class="fa fa-user" style="font-size:x-large;"></i> Welocome {{authnticationService.decodedToken?.unique_name |titlecase}}</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">

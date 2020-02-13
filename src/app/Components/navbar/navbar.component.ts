@@ -3,6 +3,8 @@ import { AuthenticationService } from 'src/app/_Services/authentication.service'
 import { UserService } from 'src/app/_Services/user.service';
 import { User } from 'src/app/_Models/user';
 import { AlertifyService } from 'src/app/_Services/alertify.service';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,9 +13,12 @@ import { AlertifyService } from 'src/app/_Services/alertify.service';
 export class NavbarComponent implements OnInit {
   users: User[];
   model: any = {};
-  constructor(public authnticationService: AuthenticationService, private userservice: UserService, private alertify:AlertifyService) { }
-
+  photoUrl:string;
+  constructor(public authnticationService: AuthenticationService,
+    private router: Router, private userservice: UserService, private alertify:AlertifyService) { }
+  
   ngOnInit() {
+    this.authnticationService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
   login() {
     this.authnticationService.login(this.model).subscribe(next => {
@@ -32,7 +37,11 @@ export class NavbarComponent implements OnInit {
   }
   logOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authnticationService.decodedToken= null;
+    this.authnticationService.currentUser=null;
     this.alertify.warning('logged out');
+    this.router.navigate(['/home']);
   }
 
 }

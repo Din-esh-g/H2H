@@ -13,8 +13,9 @@ import { AuthenticationService } from 'src/app/_Services/authentication.service'
   styleUrls: ['./editprofile.component.scss']
 })
 export class EditprofileComponent implements OnInit {
- @ViewChild('editForm', {static:true}) editForm: NgForm; 
+@ViewChild('editForm', {static:true}) editForm: NgForm; 
 user: User;
+photoUrl:string;
 @HostListener('window:beforeunload',['$event'])
 unloadNotification($event:any){
   if(this.editForm.dirty){
@@ -30,6 +31,7 @@ unloadNotification($event:any){
    this.route.data.subscribe(data => {
       this.user=data['user'];
     });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
    // this.loadUser();
   }
 
