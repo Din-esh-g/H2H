@@ -1,10 +1,12 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt'
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 import { HomeComponent } from './Components/home/home.component';
 import { MyjobComponent } from './Components/myjob/myjob.component';
@@ -14,11 +16,11 @@ import { MycommunityComponent } from './Components/mycommunity/mycommunity.compo
 import { PropertiesComponent } from './Components/properties/properties.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MakeafriendComponent } from './Components/Memebers/makeafriend/makeafriend.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyjobsService } from './_Services/myjobs.service';
 import { AuthenticationService } from './_Services/authentication.service';
 import { DropdownModule } from 'ngx-dropdown';
-import {BsDropdownModule,TabsModule} from 'ngx-bootstrap';
+import {BsDropdownModule,TabsModule, BsDatepickerModule} from 'ngx-bootstrap';
 import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
 import { FriendsComponent } from './Components/Memebers/friends/friends.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -37,6 +39,7 @@ import { MListResolver } from './_resolver/m-list-resolver';
 import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
 import { PhotoeditorComponent } from './Components/Memebers/photoeditor/photoeditor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { RegisterComponent } from './Components/Memebers/register/register.component';
 
 
 
@@ -66,13 +69,17 @@ export class CustomHammerConfig extends HammerGestureConfig{
     MembersdetailsComponent,
     EditprofileComponent,
     PhotoeditorComponent,
+    RegisterComponent,
+    TimeAgoPipe
    
    
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
@@ -80,7 +87,8 @@ export class CustomHammerConfig extends HammerGestureConfig{
     FontAwesomeModule,
     NgxGalleryModule,
     FileUploadModule,
-    //BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
    // NgxNavbarModule,
     JwtModule.forRoot({
       config: {

@@ -30,7 +30,7 @@
                 <a class="nav-link dropdown-toggle " href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">More..</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" routerLink="/register">Register</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
@@ -51,7 +51,7 @@
     <li *ngIf="loggedIn()" class="nav-item dropdown">
         <span class ="mr-sm-2">
         <!-- <img src="{{authnticationService.currentUser.photoUrl}}" alt=""> -->
-        <img src="{{photoUrl}}" alt="">
+        <img src="{{photoUrl || '../../../../../assets/photo/user.png'}}" alt="">
         </span>
         <a class="dropdown-toggle text-light" href="#" id="dropdown02" data-toggle="dropdown"
             aria-expanded="false" text-light> <i class="fa fa-user" style="font-size:x-large;"></i> Welocome {{authnticationService.decodedToken?.unique_name |titlecase}}</a>

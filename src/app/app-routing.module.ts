@@ -15,11 +15,13 @@ import { EditprofileComponent } from './Components/Memebers/editprofile/editprof
 import { MEditResolver } from './_resolver/m-edit-resolver';
 import { MListResolver } from './_resolver/m-list-resolver';
 import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
+import { RegisterComponent } from './Components/Memebers/register/register.component';
 
 
 
 const routes: Routes = [
 {path:'home',component:HomeComponent},
+{path: 'register', component: RegisterComponent },
 {path: 'myjob',component:MyjobComponent},
 {path:'mynews', component:MynewsComponent},
 {path: 'makeafriend',component:MakeafriendComponent,canActivate:[AuthGuard]},
