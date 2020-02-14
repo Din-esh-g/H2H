@@ -29,7 +29,7 @@ const routes: Routes = [
 { path: 'buyandsale', component: BuyandsaleComponent, canActivate:[AuthGuard]},
 { path: 'myevents', component: MyeventsComponent },
   { path: 'friends/editprofile', component: EditprofileComponent, resolve: { user: MEditResolver }, canDeactivate:[PreventUnSavedChanges]},
-{ path: 'friends', component: FriendsComponent},
+{ path: 'friends', component: FriendsComponent, resolve: {users:MListResolver}},
 { path: 'friends/:id', component: MembersdetailsComponent,resolve:{user: MDetailResolver}},
 {path:'**',redirectTo:'home',pathMatch:'full'},
 
