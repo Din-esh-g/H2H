@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyjobsService } from './_Services/myjobs.service';
 import { AuthenticationService } from './_Services/authentication.service';
 import { DropdownModule } from 'ngx-dropdown';
-import {BsDropdownModule,TabsModule, BsDatepickerModule} from 'ngx-bootstrap';
+import {BsDropdownModule,TabsModule, BsDatepickerModule, PaginationModule} from 'ngx-bootstrap';
 import { BuyandsaleComponent } from './Components/buyandsale/buyandsale.component';
 import { FriendsComponent } from './Components/Memebers/friends/friends.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -89,6 +89,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     FileUploadModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
+    PaginationModule.forRoot(),
    // NgxNavbarModule,
     JwtModule.forRoot({
       config: {
