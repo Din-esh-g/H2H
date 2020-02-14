@@ -16,6 +16,7 @@ import { MEditResolver } from './_resolver/m-edit-resolver';
 import { MListResolver } from './_resolver/m-list-resolver';
 import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
 import { RegisterComponent } from './Components/Memebers/register/register.component';
+import { LikeListResolver } from './_resolver/list_like_resolver';
 
 
 
@@ -24,10 +25,10 @@ const routes: Routes = [
 {path: 'register', component: RegisterComponent },
 {path: 'myjob',component:MyjobComponent},
 {path:'mynews', component:MynewsComponent},
-{path: 'makeafriend',component:MakeafriendComponent,canActivate:[AuthGuard]},
+{ path: 'makeafriend', component: MakeafriendComponent, resolve: { user: LikeListResolver }},
 {path:'mycommunity',component:MycommunityComponent},
 { path: 'buyandsale', component: BuyandsaleComponent, canActivate:[AuthGuard]},
-{ path: 'myevents', component: MyeventsComponent },
+  { path: 'myevents', component: MyeventsComponent },
   { path: 'friends/editprofile', component: EditprofileComponent, resolve: { user: MEditResolver }, canDeactivate:[PreventUnSavedChanges]},
 { path: 'friends', component: FriendsComponent, resolve: {users:MListResolver}},
 { path: 'friends/:id', component: MembersdetailsComponent,resolve:{user: MDetailResolver}},

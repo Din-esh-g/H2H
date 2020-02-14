@@ -12,6 +12,12 @@ import { Pagination, PaginationResult } from 'src/app/_Models/pagination';
 })
 export class FriendsComponent implements OnInit {
   users: User[];
+  //This is for filter
+  user: User =JSON.parse(localStorage.getItem('user'));
+  genderList:[{value:'male', display:'Males'}, {value:'female', display:'Female'}];
+  userParams:any ={};
+  //
+
   pagination: Pagination;
 
   constructor(private userservice: UserService, private alertify: AlertifyService,
@@ -25,8 +31,19 @@ export class FriendsComponent implements OnInit {
       this.users =data['users'].result;
        this.pagination= data['users'].pagination;
     });
+
+    this.userParams.gender = this.user.gender ==='female' ? 'male':'female';
+    this.userParams.minAge = 18;
+    this.userParams.maxAge =99; 
+    this.userParams.orderBy ='lastActive';
   }
 
+  resetFilter(){
+    this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+    this.userParams.minAge = 18;
+    this.userParams.maxAge = 99; 
+    this.loaduser();
+  }
 
 
   pageChanged(event: any): void {
@@ -36,7 +53,7 @@ export class FriendsComponent implements OnInit {
   }
 
   loaduser() {
-    this.userservice.getusers(this.pagination.currentPage, this.pagination.itemsPerPage)
+    this.userservice.getusers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams)
       .subscribe((res: PaginationResult<User[]>) => {
         this.users = res.result;
         this.pagination = res.pagination;

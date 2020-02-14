@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt'
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { HomeComponent } from './Components/home/home.component';
 import { MyjobComponent } from './Components/myjob/myjob.component';
@@ -40,6 +41,7 @@ import { PreventUnSavedChanges } from './_guard/prevent_unsaved_change';
 import { PhotoeditorComponent } from './Components/Memebers/photoeditor/photoeditor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { RegisterComponent } from './Components/Memebers/register/register.component';
+import { LikeListResolver } from './_resolver/list_like_resolver';
 
 
 
@@ -90,6 +92,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     PaginationModule.forRoot(),
+    ButtonsModule.forRoot(),
    // NgxNavbarModule,
     JwtModule.forRoot({
       config: {
@@ -112,6 +115,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     MEditResolver,
     MListResolver,
     PreventUnSavedChanges,
+    LikeListResolver,
 {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
