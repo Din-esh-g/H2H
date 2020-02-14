@@ -18,7 +18,7 @@ export class LikeListResolver implements Resolve<User[]> {
         return this.userService.getusers(this.pageNumber, this.pageSize, null, this.likesParams).pipe(
             catchError(error => {
                 console.log('Problem to retriving data.9');
-                this.router.navigate(['/myjob']);
+                this.router.navigate(['/home']);
                 return of(null);
             })
         );

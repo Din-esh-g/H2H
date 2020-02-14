@@ -28,7 +28,7 @@ export class UserService {
   //getusers(): Observable<User[]> {
   // return this.http.get<User[]>(this.baseUrl + 'users');
   // }
-  getusers(page?, itemsPerPage?, userParams?, likeParams?): Observable<PaginationResult<User[]>> {
+  getusers(page?, itemsPerPage?, userParams?, likesParams?): Observable<PaginationResult<User[]>> {
     const paginatedResult: PaginationResult<User[]> = new PaginationResult<User[]>();
     let params = new HttpParams();
     if (page != null && itemsPerPage != null) {
@@ -42,16 +42,16 @@ export class UserService {
       params = params.append('gender', userParams.gender);
       params = params.append('orderBy', userParams.orderBy);
     }
-if(likeParams==='Likers')
+if(likesParams==='Likers')
 {
   params= params.append('likers', 'true');
 }
 
-  if (likeParams === 'Likees') 
+  if (likesParams === 'Likees') 
   {
-      params = params.append('Likees', 'true');
+      params = params.append('likees', 'true');
     }
-    
+
     return this.http.get<User[]>(this.baseUrl + 'users', { observe: 'response', params })
       .pipe(
         map(response => {
@@ -93,7 +93,8 @@ if(likeParams==='Likers')
   }
 
   sendLike(id:number, recipientId: number){
-    return this.http.post(this.baseUrl+'users/'+ id + '/like/' + recipientId, {});
+   // return this.http.post(this.baseUrl + 'users/'+ id + '/like/' + recipientId, {});
+   return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
   }
 
 }

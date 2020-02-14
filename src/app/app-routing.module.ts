@@ -25,7 +25,7 @@ const routes: Routes = [
 {path: 'register', component: RegisterComponent },
 {path: 'myjob',component:MyjobComponent},
 {path:'mynews', component:MynewsComponent},
-{ path: 'makeafriend', component: MakeafriendComponent, resolve: { user: LikeListResolver }},
+{ path: 'makeafriend', component: MakeafriendComponent, resolve: { users: LikeListResolver }},
 {path:'mycommunity',component:MycommunityComponent},
 { path: 'buyandsale', component: BuyandsaleComponent, canActivate:[AuthGuard]},
   { path: 'myevents', component: MyeventsComponent },

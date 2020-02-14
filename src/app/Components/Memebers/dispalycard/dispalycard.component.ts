@@ -18,13 +18,13 @@ export class DispalycardComponent implements OnInit {
 
   ngOnInit() {
   }
-sendLike(id:number){
+sendLike(id: number){
 this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
-
-  this.alertyfy.error('You have liked: ' + this.user.knownAs);
+  this.alertyfy.error('You have liked: '+ this.user.knownAs);
 }, error => {
-  this.alertyfy.error('Problem to like..' +this.user.knownAs);
+  this.alertyfy.error('Problem to like' + this.user.knownAs);
 });
-  }
+
+}
 
 }

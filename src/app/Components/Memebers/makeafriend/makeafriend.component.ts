@@ -13,9 +13,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./makeafriend.component.scss']
 })
 export class MakeafriendComponent implements OnInit {
-users:User[];
-pagination : Pagination;
-likesParam:string
+users: User[];
+pagination: Pagination;
+likesParam: string
   constructor(private authService: AuthenticationService,
     private userService: UserService,
     private route: ActivatedRoute,
