@@ -42,6 +42,9 @@ import { PhotoeditorComponent } from './Components/Memebers/photoeditor/photoedi
 import { FileUploadModule } from 'ng2-file-upload';
 import { RegisterComponent } from './Components/Memebers/register/register.component';
 import { LikeListResolver } from './_resolver/list_like_resolver';
+import { MessageResolver } from './_resolver/message_resolver';
+import { MessageComponent } from './Components/message/message.component';
+import { MessagethreadadComponent } from './Components/Memebers/messagethreadad/messagethreadad.component';
 
 
 
@@ -72,7 +75,9 @@ export class CustomHammerConfig extends HammerGestureConfig{
     EditprofileComponent,
     PhotoeditorComponent,
     RegisterComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    MessageComponent,
+    MessagethreadadComponent
    
    
   ],
@@ -116,6 +121,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     MListResolver,
     PreventUnSavedChanges,
     LikeListResolver,
+    MessageResolver,
 {provide:HAMMER_GESTURE_CONFIG, useClass:CustomHammerConfig}
   ],
   bootstrap: [AppComponent]

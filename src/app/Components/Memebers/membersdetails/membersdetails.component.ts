@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/_Services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/_Models/user';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { AlertifyService } from 'src/app/_Services/alertify.service';
+import { TabsetComponent } from 'ngx-bootstrap';
 @Component({
   selector: 'app-membersdetails',
   templateUrl: './membersdetails.component.html',
   styleUrls: ['./membersdetails.component.scss']
 })
 export class MembersdetailsComponent implements OnInit {
+  @ViewChild('membersTabs', {static:true}) membersTabs:TabsetComponent
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  
   constructor(private userService:UserService, private route: ActivatedRoute,private alertyfy:AlertifyService) { }
 
   ngOnInit() {
@@ -20,6 +23,13 @@ export class MembersdetailsComponent implements OnInit {
 this.route.data.subscribe(data => {
   this.user =data['user'];
 });
+//this is for quaryparams
+
+this.route.queryParams.subscribe(params => {
+  const selectTab=params['tab'];
+  this.membersTabs.tabs[selectTab>0 ? selectTab:0].active=true;
+});
+//End of wueryparams
   this.galleryOptions=[{
     width:'500px',
     height:'500px',
@@ -56,7 +66,9 @@ getImage( ){
   //   console.log(error);
   //   });
 
-   
+   selectTab(tabId: number){
+     this.membersTabs.tabs[tabId].active=true;
+   }
   
 
 }

@@ -1,0 +1,58 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngIf="messages?.length ===0">
+<p>No Message yet.......... Please use the message box bellow ..</p> 
+        </div>
+<ul class="chat">
+    <li *ngFor="let message of messages">
+<div *ngIf="message.senderId == recipientId">
+<span class = "chat-img float-left">
+<img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class ="img-circle rounded-circle mr-1">
+</span>
+<div class="chat-body">
+    <div class="header">
+            <small class="text-muted">
+                <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
+                <span *ngIf="!message.isRead" class = "text-danger">(unread)</span>
+                <span *ngIf="message.isRead" class ="text-success">(Read {{message.dateRead | timeAgo}})</span>
+            </small>
+    <strong class= "primary-front float-left">{{message.senderKnownAs}}</strong>
+
+    </div>
+<p> {{message.content}}</p> 
+</div>
+</div>
+<!-- to me-->
+<div *ngIf="message.senderId != recipientId">
+    <span class="chat-img float-right">
+        <img src="{{message.senderPhotoUrl}}" alt="{{message.senderKnownAs}}" class="img-circle rounded-circle mr-1">
+    </span>
+    <div class="chat-body">
+        <div class="header">
+            <strong class="primary-front float-right">{{message.senderKnownAs}}</strong>
+            <small class="text-muted ">
+                <span class="fa fa-clock-o">
+                    {{message.messageSent | timeAgo}}
+                </span>
+            </small>
+        </div>
+        <p> {{message.content}}</p>
+    </div>
+</div>
+    </li>
+
+</ul>
+</div>
+<div class="card-footer">
+<form #messageForm="ngForm" (ngSubmit)="messageForm.valid && sendMessage()">
+<div class="input-group">
+<input type="text" 
+[(ngModel)]="newMessage.content" name="content" required
+class="form-control input-sm" placeholder="Send a private message.">  
+<div class="input-group-append">
+    <button class="btn btn-primary" [disabled]="!messageForm.valid">Send</button>
+</div> 
+</div>
+</form>
+</div>
+</div>
